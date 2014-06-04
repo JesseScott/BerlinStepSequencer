@@ -45,3 +45,9 @@ a step sequencer based off of data from different cities named berlin
 	Lat/Lon
 
 	Age / Year of Incorporation
+
+	Building Height
+
+	Traffic Data
+
+	Education / Health Stats
