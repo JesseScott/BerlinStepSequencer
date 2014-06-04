@@ -1,7 +1,7 @@
 
 /*
 
-  a step sequencer based off of data from different cities named berlin
+  A step sequencer based off of data from different cities named Berlin
   
   LGPL V2 and shit
   
@@ -14,7 +14,6 @@
 // IMPORTS
 
 import org.puredata.processing.PureData;
-
 
 
 // INSTANCES
