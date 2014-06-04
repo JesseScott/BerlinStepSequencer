@@ -24,7 +24,7 @@ PureData pd;
 
 // VARIABLES
 
-
+int NUM_STEPS = 8;
 
 
 
@@ -40,10 +40,42 @@ void setup() {
   // Pd
   pd = new PureData(this, 44100, 0, 2);
   pd.openPatch("step.pd");
+  
+  for(int i = 1; i < NUM_STEPS + 1; i++) {
+    String id = "Bang";
+    id += i;
+    pd.subscribe(id);
+  }
+  
   pd.start();
+  
 }
 
 
 
 
 // DRAW
+
+void draw() {
+  
+  
+}
+
+
+// PD
+
+void pdPrint(String s) {
+    //println("Print is " + s);
+}
+
+void receiveBang(String source) {
+  println("Bang is " + source);
+}
+
+void receiveFloat(String source, float x) {
+  //println("Float is " + source + "  " + x);
+}
+
+void receiveSymbol(String source, String sym) {
+  //println("Symbol is " + source + "  " + sym);
+}
