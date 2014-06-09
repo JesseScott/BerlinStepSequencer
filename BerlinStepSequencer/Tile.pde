@@ -30,12 +30,12 @@ class Tile {
     
     // BG
     noFill();
-    stroke(0);
+    stroke(255);
     rect(x, y, w-1, h-1);
     
     // Bang
     if(banged) {
-      fill(0);
+      fill(255);
       noStroke();
       ellipseMode(CORNER);
       ellipse(x, y, w, h);

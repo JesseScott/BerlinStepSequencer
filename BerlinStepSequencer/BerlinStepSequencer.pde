@@ -23,8 +23,9 @@ Tile[] tiles;
 
 // VARIABLES
 
-int NUM_STEPS = 8;
-
+public static final int NUM_STEPS = 4;
+public static final int TILE_WIDTH = 200; // 720
+public static final int TILE_HEIGHT = 200; // 540
 
 
 
@@ -34,7 +35,7 @@ int NUM_STEPS = 8;
 void setup() {
   
   // Screen
-  size(1600, 200);
+  size(TILE_WIDTH * NUM_STEPS, TILE_HEIGHT);
   
   // Pd
   pd = new PureData(this, 44100, 0, 2);
@@ -63,7 +64,7 @@ void setup() {
 void draw() {
   
   // Fade BG
-  fill(255, 25);
+  fill(0, 25);
   rect(0, 0, width, height);
   
   for(int i = 0; i < tiles.length; i++) {
@@ -89,7 +90,9 @@ void receiveBang(String source) {
   indexToBang = indexToBang -1;
   
   // Bang It
-  tiles[indexToBang].bang(); 
+  if(indexToBang < NUM_STEPS) {
+    tiles[indexToBang].bang(); 
+  }
   
 }
 
