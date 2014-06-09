@@ -46,6 +46,7 @@ void setup() {
     pd.subscribe(id);
   }
   pd.start();
+  pd.sendFloat("num_steps", NUM_STEPS);
   
   //  Tiles
   tiles = new Tile[NUM_STEPS];
