@@ -1,4 +1,5 @@
-#N canvas 552 22 354 378 10;
+#N canvas 617 11 483 497 10;
+#X declare -lib mrpeach;
 #N canvas 1499 272 450 300 bpm 0;
 #X obj 92 92 metro 120;
 #X obj 127 116 + 1;
@@ -41,7 +42,7 @@
 #X obj 144 -72 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj -3 -45 s step;
-#N canvas 544 449 763 511 stepsequencer 1;
+#N canvas 544 449 763 511 stepsequencer 0;
 #X obj 250 5 inlet;
 #X obj 287 5 inlet;
 #X obj 324 5 inlet;
@@ -175,7 +176,7 @@
 #X connect 4 0 2 0;
 #X connect 5 0 3 0;
 #X restore 312 374 pd drums;
-#N canvas 18 556 485 516 drums 1;
+#N canvas 18 556 485 516 drums 0;
 #X obj 130 213 readsf~;
 #X obj 130 247 dac~;
 #X msg 130 122 bang;
@@ -506,7 +507,7 @@
 -1 0;
 #X obj -3 -224 loadbang;
 #X msg 30 -174 240;
-#N canvas 1421 650 450 300 tiles 0;
+#N canvas 1121 208 450 300 tiles 0;
 #X obj 170 39 r num_steps;
 #X floatatom 170 97 5 0 0 0 - - -;
 #X obj 223 172 + 1;
@@ -536,6 +537,23 @@
 #X connect 9 0 1 0;
 #X connect 13 0 1 0;
 #X restore 64 -174 pd tiles;
+#N canvas 1117 10 538 447 osc 1;
+#X obj 76 31 inlet;
+#X obj 115 61 udpreceive 9999;
+#X obj 115 96 unpackOSC;
+#X obj 117 31 import mrpeach;
+#X obj 115 124 routeOSC /num_steps /foo;
+#X obj 115 160 print num;
+#X obj 185 160 print foo;
+#X obj 256 160 print all;
+#X obj 105 181 s num_steps;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 8 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X restore 121 -174 pd osc;
 #X connect 0 0 17 0;
 #X connect 2 0 0 0;
 #X connect 3 0 12 0;
@@ -560,5 +578,6 @@
 #X connect 18 0 19 0;
 #X connect 18 0 2 0;
 #X connect 18 0 20 0;
+#X connect 18 0 21 0;
 #X connect 19 0 0 1;
 #X connect 19 0 1 0;

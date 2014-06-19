@@ -14,11 +14,15 @@
 // IMPORTS
 
 import org.puredata.processing.PureData;
+import oscP5.*;
+import netP5.*;
 import java.awt.Frame;
 
 // INSTANCES
 
 PureData pd;
+OscP5 osc;
+NetAddress net;
 Tile[] tiles;
 
 // VARIABLES
@@ -45,7 +49,25 @@ void setup() {
   size(TILE_WIDTH * NUM_STEPS, TILE_HEIGHT);
   //frame.setLocation(0 - (TILE_WIDTH * NUMBER_OF_ROWS), 0);
   
+  // OSC
+  osc = new OscP5(this, 9999);
+  net = new NetAddress("127.0.0.1", 9999);
+  OscMessage msg = new OscMessage("/num_steps");
+  msg.add(NUM_STEPS);
+  osc.send(msg, net);
+  
+  msg.clear();
+  msg.setAddrPattern("/foo");
+  msg.add("foo");
+  osc.send(msg, net);
+
+  msg.clear();
+  msg.setAddrPattern("/all");
+  msg.add("all");
+  osc.send(msg, net);
+  
   // Pd
+  /*
   pd = new PureData(this, 44100, 0, 2);
   pd.openPatch("pd/step.pd");
   for(int i = 1; i < NUM_STEPS + 1; i++) {
@@ -55,6 +77,7 @@ void setup() {
   }
   pd.start();
   pd.sendFloat("num_steps", NUM_STEPS);
+  */
   
   //  Tiles
   tiles = new Tile[NUM_STEPS];
