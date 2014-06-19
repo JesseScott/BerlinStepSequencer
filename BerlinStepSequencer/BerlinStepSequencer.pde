@@ -47,7 +47,7 @@ void setup() {
   
   // Pd
   pd = new PureData(this, 44100, 0, 2);
-  pd.openPatch("step.pd");
+  pd.openPatch("pd/step.pd");
   for(int i = 1; i < NUM_STEPS + 1; i++) {
     String id = "Bang";
     id += i;

@@ -1,0 +1,5 @@
+name	Berlin Conneticut
+date	1785
+pop	19866
+elev	105
+time	UTC - 5

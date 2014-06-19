@@ -1,0 +1,5 @@
+name	Kitchener Canada
+date	1833
+pop	507096
+elev	1000
+time	UTC - 5

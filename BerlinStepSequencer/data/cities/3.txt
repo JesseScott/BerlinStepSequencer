@@ -1,0 +1,5 @@
+name	Genevra California
+date	1876
+pop	21419
+elev	98
+time	UTC - 8
