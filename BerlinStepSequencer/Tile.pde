@@ -10,10 +10,10 @@ class Tile {
 
   Tile(int _index) {
     index = _index;
-    x = index * 200;
+    x = index * TILE_WIDTH;
     y = 0;
-    w = 200;
-    h = 200;
+    w = TILE_WIDTH;
+    h = TILE_HEIGHT;
   }
   
   void setup( ) {
