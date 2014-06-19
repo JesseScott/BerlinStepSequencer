@@ -14,7 +14,7 @@
 // IMPORTS
 
 import org.puredata.processing.PureData;
-
+import java.awt.Frame;
 
 // INSTANCES
 
