@@ -28,7 +28,14 @@ public static final int TILE_WIDTH = 200; // 720
 public static final int TILE_HEIGHT = 200; // 540
 
 
+// SCREEN
 
+public void init() {
+  frame.removeNotify();
+  frame.setUndecorated(true);
+  frame.addNotify();
+  super.init();
+}
 
 // SETUP
 
@@ -36,6 +43,7 @@ void setup() {
   
   // Screen
   size(TILE_WIDTH * NUM_STEPS, TILE_HEIGHT);
+  //frame.setLocation(0 - (TILE_WIDTH * NUMBER_OF_ROWS), 0);
   
   // Pd
   pd = new PureData(this, 44100, 0, 2);
