@@ -26,15 +26,18 @@ Tile[] tiles;
 // VARIABLES
 
 public static final int NUM_STEPS = 4;
-public static final int TILE_WIDTH = 200; // 720
-public static final int TILE_HEIGHT = 200; // 540
+public static final int NUMBER_OF_ROWS = 2;
+public static final int NUMBER_OF_COLS = 2;
+public static final int TILE_WIDTH = 720; // 720
+public static final int TILE_HEIGHT = 540; // 540
+boolean debugLayout = false;
 
 
 // SCREEN
 
 public void init() {
   frame.removeNotify();
-  frame.setUndecorated(false);
+  frame.setUndecorated(true);
   frame.addNotify();
   super.init();
 }
@@ -44,8 +47,9 @@ public void init() {
 void setup() {
   
   // Screen
-  size(TILE_WIDTH * NUM_STEPS, TILE_HEIGHT);
-  //frame.setLocation(0 - (TILE_WIDTH * NUMBER_OF_ROWS), 0);
+  size(TILE_WIDTH * NUMBER_OF_ROWS, TILE_HEIGHT * NUMBER_OF_COLS, P2D);
+  frame.setLocation(0 - (TILE_WIDTH * NUMBER_OF_ROWS), 0);
+  //frame.setLocation(50, 50);
   
   // OSC
   osc = new OscP5(this, 8888);
@@ -57,7 +61,9 @@ void setup() {
   //  Tiles
   tiles = new Tile[NUM_STEPS];
   for(int i = 0; i < tiles.length; i++) {
-    tiles[i] = new Tile(i); 
+    int x = TILE_WIDTH  * (i % 2);
+    int y = TILE_HEIGHT * (((i/2) % 2) % (tiles.length/2));
+    tiles[i] = new Tile(i, x, y); 
     tiles[i].setup();
   }
   

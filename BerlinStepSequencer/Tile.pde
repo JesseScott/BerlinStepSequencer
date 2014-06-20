@@ -5,15 +5,13 @@ class Tile {
   
   // Globals
   int index;
-  int x, y, w, h;
+  int xpos, ypos;
   boolean banged = false;
 
-  Tile(int _index) {
+  Tile(int _index, int _xpos, int _ypos) {
     index = _index;
-    x = index * TILE_WIDTH;
-    y = 0;
-    w = TILE_WIDTH;
-    h = TILE_HEIGHT;
+    xpos = _xpos;
+    ypos = _ypos;
   }
   
   void setup( ) {
@@ -28,18 +26,28 @@ class Tile {
   
   void draw() {
     
-    // BG
-    noFill();
-    stroke(255);
-    rect(x, y, w-1, h-1);
-    
-    // Bang
-    if(banged) {
+   if(debugLayout) {
+      stroke(255, 0, 0);
+      fill(0);
+      rect(xpos, ypos, TILE_WIDTH, TILE_HEIGHT);
       fill(255);
-      noStroke();
-      ellipseMode(CORNER);
-      ellipse(x, y, w, h);
-      banged = false;
+      textSize(96);
+      text(index, xpos + TILE_WIDTH/2, ypos + TILE_HEIGHT/2); 
+    }
+    else {   
+      // BG
+      noFill();
+      stroke(255);
+      rect(xpos, ypos, TILE_WIDTH-1, TILE_HEIGHT-1);
+      
+      // Bang
+      if(banged) {
+        fill(255);
+        noStroke();
+        ellipseMode(CORNER);
+        ellipse(xpos + (TILE_WIDTH - TILE_HEIGHT)/2, ypos, TILE_HEIGHT, TILE_HEIGHT);
+        banged = false;
+      }
     }
     
   }
