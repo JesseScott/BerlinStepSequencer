@@ -3,12 +3,12 @@
 
 void oscEvent(OscMessage theOscMessage) {
   
-  int indexToBang = 0;
+  int indexToBang = -1;
   
   // Parse It
   if(theOscMessage.checkAddrPattern("/Bang")) {
     if(theOscMessage.checkTypetag("i")) {
-      indexToBang = theOscMessage.get(0).intValue();  
+      indexToBang = theOscMessage.get(0).intValue() -1;  
     }  
   } 
   
@@ -16,4 +16,5 @@ void oscEvent(OscMessage theOscMessage) {
   if(indexToBang < NUM_STEPS && indexToBang > 0) {
     tiles[indexToBang].bang(); 
   }
+  
 }
