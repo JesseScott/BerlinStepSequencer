@@ -13,7 +13,7 @@ void oscEvent(OscMessage theOscMessage) {
   } 
   
   // Bang It
-  if(indexToBang < NUM_STEPS && indexToBang > 0) {
+  if(indexToBang < NUM_STEPS && indexToBang > -1) {
     tiles[indexToBang].bang(); 
   }
   
