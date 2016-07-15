@@ -1,4 +1,4 @@
-#N canvas 617 11 483 497 10;
+#N canvas 52 296 260 410 10;
 #X declare -lib mrpeach;
 #N canvas 1499 272 450 300 bpm 0;
 #X obj 92 92 metro 120;
@@ -42,7 +42,7 @@
 #X obj 144 -72 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj -3 -45 s step;
-#N canvas 342 284 763 511 stepsequencer 0;
+#N canvas 50 368 763 511 stepsequencer 0;
 #X obj 250 5 inlet;
 #X obj 287 5 inlet;
 #X obj 324 5 inlet;
@@ -579,7 +579,7 @@
 #X connect 9 0 1 0;
 #X connect 13 0 1 0;
 #X restore 64 -174 pd tiles;
-#N canvas 1133 12 653 457 osc 0;
+#N canvas 1133 22 653 457 osc 0;
 #X obj -16 -333 cnv 15 300 200 empty empty empty 20 12 0 14 -162280
 -66577 0;
 #X obj 20 -320 udpreceive 9999;
